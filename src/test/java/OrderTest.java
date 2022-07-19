@@ -1,6 +1,13 @@
 
+import client.IngredientsApiClient;
+import client.OrdersApiClient;
+import client.UsersApiClient;
 import io.qameta.allure.junit4.DisplayName;
 
+import models.Authorization;
+import models.Ingredient;
+import models.Order;
+import models.User;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;

@@ -1,3 +1,5 @@
+package models;
+
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;

@@ -1,5 +1,9 @@
+package client;
+
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import models.Authorization;
+import models.User;
 import org.apache.http.HttpStatus;
 import java.util.ArrayList;
 import static io.restassured.RestAssured.given;

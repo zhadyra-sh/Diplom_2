@@ -1,6 +1,9 @@
 
+import client.UsersApiClient;
 import io.qameta.allure.junit4.DisplayName;
 
+import models.Authorization;
+import models.User;
 import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Assert;
@@ -52,7 +55,7 @@ public class UserRegisterTest {
 
     @Test
     @DisplayName("It should not be possible to create a user without filling in a required field.")
-    public void shouldNotRegisterUserWithoutNecessaryFieldsTest() {
+    public void shouldNotRegisterUserWithoutNecessaryFieldsEmailTest() {
         User user = User.getRandomUser();
 
         user.setEmail(null);
@@ -63,6 +66,30 @@ public class UserRegisterTest {
                 .and().assertThat().body("success", equalTo(false));
     }
 
+    @Test
+    @DisplayName("It should not be possible to create a user without filling in a required field.")
+    public void shouldNotRegisterUserWithoutNecessaryFieldsNameTest() {
+        User user = User.getRandomUser();
+        user.setName(null);
+
+        usersApiClient
+                .register(user)
+                .then().assertThat().statusCode(HttpStatus.SC_FORBIDDEN)
+                .and().assertThat().body("success", equalTo(false));
+    }
+
+    @Test
+    @DisplayName("It should not be possible to create a user without filling in a required field.")
+    public void shouldNotRegisterUserWithoutNecessaryFieldsPasswordTest() {
+        User user = User.getRandomUser();
+        user.setPassword(null);
+
+        usersApiClient
+                .register(user)
+                .then().assertThat().statusCode(HttpStatus.SC_FORBIDDEN)
+                .and().assertThat().body("success",equalTo(false));
+
+    }
 
     @Test
     @DisplayName("It should be possible to get information about the user.")

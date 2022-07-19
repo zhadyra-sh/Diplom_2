@@ -1,4 +1,5 @@
 
+import client.IngredientsApiClient;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
